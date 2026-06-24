@@ -6,7 +6,11 @@ kind: rust-substrate-library
 dimensions:
   borders:
     - name: CrdtDoc
-      keyword: defcrdtdoc
+      # No `keyword:` — crdt-doc is a plain Rust trait border at M0a, NOT a
+      # TataraDomain/Lisp form. The `(defcrdt-merge)` Lisp spec + interpreter
+      # arrive at M2 with the real loro engine (see CLAUDE.md skip-typed-spec-
+      # triplet waiver). Claiming a `defcrdtdoc` keyword now would be model↔code
+      # drift (the code has zero TataraDomain derive).
       maturity: M2Typed        # typed-and-compiling at M0a; realized engine at M2
       purpose: "typed CRDT-text border (Solo realized; Loro/YCrdt typed-unimplemented)"
       upstream-mirror: loro
