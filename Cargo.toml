@@ -6,7 +6,7 @@
 # a typed SpecError — NEVER a silent Ok, NEVER todo!()/unimplemented!()/panic!().
 [package]
 name = "crdt-doc"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT"
 description = "Typed CRDT-text border (trait CrdtDoc over CrdtKind{Solo,Loro,YCrdt}) for pleme-io"
