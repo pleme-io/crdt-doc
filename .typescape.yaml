@@ -1,0 +1,17 @@
+# crdt-doc TypescapeManifest (SABER §7 Modules dimension — each Saber crate a
+# Merkle leaf). Registers the CrdtDoc border domain into arch-synthesizer.
+repo: crdt-doc
+org: pleme-io
+kind: rust-substrate-library
+dimensions:
+  borders:
+    - name: CrdtDoc
+      keyword: defcrdtdoc
+      maturity: M2Typed        # typed-and-compiling at M0a; realized engine at M2
+      purpose: "typed CRDT-text border (Solo realized; Loro/YCrdt typed-unimplemented)"
+      upstream-mirror: loro
+      depends-on: []
+provides:
+  - trait CrdtDoc
+  - enum CrdtKind
+  - SoloDoc

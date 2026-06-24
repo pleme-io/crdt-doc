@@ -1,0 +1,28 @@
+# crdt-doc — the typed CRDT-text border for the pleme-io fleet (SABER §5/§8).
+# M0a: typed-and-COMPILING but degenerate — the only realized engine is the
+# single-writer SoloDoc (a one-replica CRDT). loro (primary) + yrs (interop)
+# arrive at M2 behind THIS SAME trait + the mocked-transport convergence
+# forcing-function (SABER §9 risk #1). Every unimplemented CrdtKind arm returns
+# a typed SpecError — NEVER a silent Ok, NEVER todo!()/unimplemented!()/panic!().
+[package]
+name = "crdt-doc"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Typed CRDT-text border (trait CrdtDoc over CrdtKind{Solo,Loro,YCrdt}) for pleme-io"
+repository = "https://github.com/pleme-io/crdt-doc"
+
+[dependencies]
+# ropey::Rope is the materialize() render border (SABER §5 "materialize()→Rope").
+ropey = "1.6"
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "1.0"
+
+[dev-dependencies]
+proptest = "1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
