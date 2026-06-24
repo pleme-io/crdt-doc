@@ -1,3 +1,9 @@
+name: auto-release
+
+# Single-crate Rust repo → cargo-auto-release (bump, tag, push, publish to
+# crates.io on merge to main). NOT the polymorphic auto-release.yml (which has
+# no green consumers for a bare library); cargo-auto-release.yml is the
+# single-crate reusable. Workspace repos use rust-auto-release.yml instead.
 on:
   push:
     branches: [main]
@@ -10,7 +16,7 @@ on:
 
 jobs:
   release:
-    uses: pleme-io/substrate/.github/workflows/auto-release.yml@main
+    uses: pleme-io/substrate/.github/workflows/cargo-auto-release.yml@main
     with:
       bump-type: ${{ inputs.bump-type || 'patch' }}
     secrets: inherit

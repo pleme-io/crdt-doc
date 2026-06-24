@@ -154,4 +154,16 @@ mod tests {
             Err(SpecError::NoWireForm { op: "apply_update" })
         ));
     }
+
+    // The degenerate (one-replica) case of the M2 convergence forcing-function
+    // (SABER §9 risk #1): for a solo doc, materialize() round-trips its body
+    // losslessly for arbitrary input. At M2 this generalizes to "two replicas,
+    // interleaved edits → identical materialize()", the no-clobber merge gate.
+    proptest::proptest! {
+        #[test]
+        fn solo_materialize_round_trips_arbitrary_body(body in ".*") {
+            let doc = open_doc(CrdtKind::Solo, &body).expect("solo opens");
+            proptest::prop_assert_eq!(doc.materialize().to_string(), body);
+        }
+    }
 }

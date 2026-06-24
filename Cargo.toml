@@ -7,7 +7,7 @@
 [package]
 name = "crdt-doc"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 license = "MIT"
 description = "Typed CRDT-text border (trait CrdtDoc over CrdtKind{Solo,Loro,YCrdt}) for pleme-io"
 repository = "https://github.com/pleme-io/crdt-doc"
